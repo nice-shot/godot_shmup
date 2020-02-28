@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/bullet_movement.gd" type="Script" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4, 10 )
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource( 1 )
+speed = 500
+
+[node name="Graphic" type="Line2D" parent="."]
+points = PoolVector2Array( 0, 0, 0, -20 )
+width = 8.0
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -10 )
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 0, -10.0028 )
+scale = Vector2( 0.376746, 1 )
+rect = Rect2( -11, -10, 22, 20 )
+[connection signal="area_entered" from="." to="." method="_on_Bullet_area_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/ship.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scripts/astroid_spawner.gd" type="Script" id=2]
+[ext_resource path="res://fonts/Minecraft.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/game_manager.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 3 )
+
+[node name="Main" type="Node"]
+script = ExtResource( 4 )
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+margin_left = -2.05054
+margin_top = -2.05054
+margin_right = 357.949
+margin_bottom = 637.949
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ship" parent="." instance=ExtResource( 1 )]
+position = Vector2( 180, 550 )
+speed = 250
+
+[node name="AsteroidSpawner" type="Timer" parent="."]
+autostart = true
+script = ExtResource( 2 )
+
+[node name="ScoreLabel" type="RichTextLabel" parent="."]
+margin_left = 20.0
+margin_top = 16.0279
+margin_right = 340.0
+margin_bottom = 40.0279
+custom_fonts/normal_font = SubResource( 1 )
+text = "Score: ##"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="AsteroidSpawner" to="." method="_on_Timer_timeout"]
