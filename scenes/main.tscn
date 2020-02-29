@@ -1,12 +1,21 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/ship.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/astroid_spawner.gd" type="Script" id=2]
 [ext_resource path="res://fonts/Minecraft.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://scenes/game_manager.gd" type="Script" id=4]
+[ext_resource path="res://fonts/main_font.tres" type="DynamicFont" id=5]
 
 [sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
 size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
 font_data = ExtResource( 3 )
 
 [node name="Main" type="Node"]
@@ -30,14 +39,55 @@ speed = 250
 autostart = true
 script = ExtResource( 2 )
 
-[node name="ScoreLabel" type="RichTextLabel" parent="."]
+[node name="ScoreLabel" type="Label" parent="."]
 margin_left = 20.0
 margin_top = 16.0279
 margin_right = 340.0
 margin_bottom = 40.0279
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/font = ExtResource( 5 )
 text = "Score: ##"
-scroll_active = false
+
+[node name="DeathMessageLabel" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -28.5678
+margin_bottom = -91.5679
+custom_fonts/font = SubResource( 1 )
+text = "You Died!
+
+Final Score: ###"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DeathMessageLabel2" type="Label" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -216.318
+margin_bottom = -171.318
+custom_fonts/font = SubResource( 3 )
+text = "Press RETURN to continue"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnterName" type="LineEdit" parent="."]
+anchor_left = 0.15
+anchor_top = 0.61
+anchor_right = 0.85
+anchor_bottom = 0.7
+margin_left = 1.36035
+margin_top = -56.8058
+margin_right = 1.36035
+margin_bottom = -56.8058
+custom_fonts/font = SubResource( 2 )
+align = 1
+placeholder_text = "Your Name"
 __meta__ = {
 "_edit_use_anchors_": false
 }
