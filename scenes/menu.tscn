@@ -1,17 +1,17 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/Minecraft.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://scenes/menu.gd" type="Script" id=2]
+[ext_resource path="res://scripts/menu.gd" type="Script" id=2]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 14
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 32
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 21
 font_data = ExtResource( 1 )
 
@@ -30,7 +30,7 @@ __meta__ = {
 anchor_right = 1.0
 margin_top = 37.6156
 margin_bottom = 52.6156
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 text = "A GAME BY NICE-SHOT"
 align = 1
 valign = 1
@@ -44,7 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_top = -61.0239
 margin_bottom = 40.9761
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "ASTRO
 
 BLASTER"
@@ -58,7 +58,7 @@ __meta__ = {
 anchor_right = 1.0
 margin_top = 465.48
 margin_bottom = 496.48
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "PLAY"
 align = 1
 valign = 1
@@ -70,7 +70,7 @@ __meta__ = {
 anchor_right = 1.0
 margin_top = 508.48
 margin_bottom = 539.48
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "LEADERBOARD"
 align = 1
 valign = 1

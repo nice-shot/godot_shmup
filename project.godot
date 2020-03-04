@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "GameManager",
 "language": "GDScript",
-"path": "res://scenes/game_manager.gd"
+"path": "res://scripts/game_manager.gd"
 } ]
 _global_script_class_icons={
 "AsteroidMovement": "",
