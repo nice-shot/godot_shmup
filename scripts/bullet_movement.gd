@@ -1,7 +1,7 @@
 extends Area2D
 
 export var speed = 50
-onready var manager = get_tree().root.get_node("Main") as GameManager
+onready var manager = get_tree().root.get_node("Main/Game") as GameManager
 var destroyed = false
 
 func _physics_process(delta):

@@ -22,7 +22,7 @@ font_data = ExtResource( 2 )
 size = 32
 font_data = ExtResource( 2 )
 
-[node name="Main" type="Node"]
+[node name="Game" type="Node"]
 script = ExtResource( 3 )
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
@@ -50,6 +50,9 @@ margin_right = 340.0
 margin_bottom = 40.0279
 custom_fonts/font = ExtResource( 5 )
 text = "Score: ##"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="DeathMessageLabel" type="Label" parent="."]
 visible = false
