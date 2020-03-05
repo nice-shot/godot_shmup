@@ -16,4 +16,3 @@ func _on_menu_clicked(var id:int):
 	menu_node.queue_free()
 	add_child((game_node))
 	
-	

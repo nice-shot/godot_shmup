@@ -25,4 +25,6 @@ func _input(event):
 		_selections[_selected_index].show()
 	
 	if event.is_action_pressed("ui_accept"):
-		emit_signal("menu_clicked", _selected_index)
+		# Emitting signal on defered so the ship won't immediately shoot
+		call_deferred("emit_signal", "menu_clicked", _selected_index)
+		

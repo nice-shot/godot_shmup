@@ -5,13 +5,15 @@ var min_x = 0
 var max_x = ProjectSettings.get_setting("display/window/size/width")
 var bullet = preload("res://scenes/bullet.tscn")
 
+signal hit
+
 func _ready():
 	var size = $Graphic.size
 	min_x += size / 2
 	max_x -= size / 2
 
-func _process(delta):
-	if Input.is_action_just_pressed("ui_select"): _shoot()
+func _input(event):
+	if event.is_action_pressed("ui_select"): _shoot()
 
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"): _move(-speed * delta)
@@ -29,9 +31,9 @@ func _shoot():
 	get_parent().add_child(new_bullet)
 	
 
-
 func _on_Collider_area_entered(area: Area2D):
 	var asteroid = area.get_parent() as AsteroidMovement
 	if (asteroid):
 		asteroid.explode()
+		emit_signal("hit")
 	
