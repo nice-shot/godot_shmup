@@ -40,3 +40,7 @@ scale_amount_curve = SubResource( 1 )
 [node name="ExplodeSFX" type="AudioStreamPlayer" parent="."]
 stream = SubResource( 2 )
 volume_db = -4.0
+
+[node name="Outline" type="Line2D" parent="."]
+points = PoolVector2Array( -25, -25, 25, -25, 25, 25, -25, 25, -25, -25 )
+width = 2.0
