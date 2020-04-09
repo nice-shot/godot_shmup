@@ -7,7 +7,9 @@ var rnd = RandomNumberGenerator.new()
 var asteroid_scene = preload("res://scenes/asteroid.tscn")
 
 func _ready():
-    self.connect("timeout", self, "_on_AsteroidSpawner_timeout")
+    var error = self.connect("timeout", self, "_on_AsteroidSpawner_timeout")
+    if (error):
+        print("Couldn't connect timeout to AsteroidSpawner timeout")
 
 func spawn_asteroid():
     var node = asteroid_scene.instance()

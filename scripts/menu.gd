@@ -6,9 +6,8 @@ onready var _selections = [$PlaySelectionArrows, $LeaderboardSelectionArrows]
 signal menu_clicked
 
 func _ready():
-    var selection : Node2D
     for selection in _selections:
-        selection.hide()
+        (selection as Node2D).hide()
     
     _selections[_selected_index].show()
 
@@ -26,6 +25,8 @@ func _input(event):
     
     if event.is_action_pressed("ui_accept"):
         # Emitting signal on defered so the ship won't immediately shoot
-        call_deferred("emit_signal", "menu_clicked", _selected_index)
+        call_deferred("_emit_menu_clicked")
 
+func _emit_menu_clicked():
+    emit_signal("menu_clicked", _selected_index)
         

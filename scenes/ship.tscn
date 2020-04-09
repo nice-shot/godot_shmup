@@ -14,4 +14,5 @@ script = ExtResource( 2 )
 
 [node name="ShootSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+volume_db = -6.0
 [connection signal="area_entered" from="Collider" to="." method="_on_Collider_area_entered"]

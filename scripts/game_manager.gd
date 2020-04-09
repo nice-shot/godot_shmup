@@ -10,14 +10,18 @@ func update_score(points):
     
 func _ready():
     update_score(0)
-    $Ship.connect("hit", self, "_on_hit")
+    var error = $Ship.connect("hit", self, "_on_hit")
+    if (error):
+        print("Couldn't connect ship 'hit' event")
     
 func _on_hit():
     get_tree().paused = true
     $DeathMessage.visible = true
     $DeathMessage/DeathMessageLabel.text = $DeathMessage/DeathMessageLabel.text.replace("###", score)
     $DeathMessage/EnterName.grab_focus()
-    $DeathMessage.connect("finished", self, "_on_continue")
+    var error = $DeathMessage.connect("finished", self, "_on_continue")
+    if (error):
+        print("Couldn't connect 'finished' game manager 'finished' event")
 
 func _on_continue():
     get_tree().paused = false

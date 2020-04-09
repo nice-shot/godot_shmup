@@ -19,7 +19,7 @@ func _create_shape() -> PoolVector2Array:
     var points = []
     var half_size = size / 2
     
-    for i in range(num_of_edges):
+    for _i in range(num_of_edges):
         points.append(Vector2(
             rng.randi_range(-half_size, half_size),
             rng.randi_range(-half_size, half_size)
@@ -46,7 +46,9 @@ func explode():
     $Collider.queue_free()
     $Particles2D.emitting = true
     speed = 0
-    $Timer.connect("timeout", self, "queue_free")
+    var error = $Timer.connect("timeout", self, "queue_free")
+    if (error):
+        print("Couldn't connect free to timeout...")
     $Timer.wait_time = $Particles2D.lifetime;
     $Timer.start()
     if manager: manager.update_score(10)
