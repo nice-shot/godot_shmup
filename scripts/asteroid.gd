@@ -1,4 +1,4 @@
-class_name AsteroidMovement
+class_name Asteroid
 extends Node2D
 
 export var size = 50

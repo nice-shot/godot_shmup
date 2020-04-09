@@ -9,8 +9,8 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
-"class": "AsteroidMovement",
+"base": "Node2D",
+"class": "Asteroid",
 "language": "GDScript",
 "path": "res://scripts/asteroid.gd"
 }, {
@@ -20,7 +20,7 @@ _global_script_classes=[ {
 "path": "res://scripts/game_manager.gd"
 } ]
 _global_script_class_icons={
-"AsteroidMovement": "",
+"Asteroid": "",
 "GameManager": ""
 }
 
