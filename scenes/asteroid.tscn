@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
+[ext_resource path="res://sfx/Explosion.wav" type="AudioStream" id=1]
 [ext_resource path="res://scripts/asteroid.gd" type="Script" id=2]
 
 [sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 1 ), 0.0, -0.542329, 0, 0, Vector2( 0.957831, 0 ), -1.06698, 0.0, 0, 0 ]
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+audio_stream = ExtResource( 1 )
+random_pitch = 1.6
 
 [node name="Asteroid" type="Node2D"]
 script = ExtResource( 2 )
@@ -31,3 +36,7 @@ scale_amount_random = 1.0
 scale_amount_curve = SubResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="ExplodeSFX" type="AudioStreamPlayer" parent="."]
+stream = SubResource( 2 )
+volume_db = -4.0

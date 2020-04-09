@@ -30,6 +30,10 @@ config/name="GodotShmupProject"
 run/main_scene="res://scenes/main.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout=""
+
 [display]
 
 window/size/width=360

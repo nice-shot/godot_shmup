@@ -41,6 +41,7 @@ func _physics_process(delta):
         queue_free()
 
 func explode():
+    $ExplodeSFX.play()
     $Graphic.queue_free()
     $Collider.queue_free()
     $Particles2D.emitting = true
