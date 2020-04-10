@@ -18,12 +18,28 @@ func _create_shape() -> PoolVector2Array:
     var num_of_edges = rng.randi_range(5, 9)
     var points = []
     var half_size = size / 2
+    # Used to distribute the points across the four corners
+    var point_area = rng.randi_range(0, 3)
     
     for _i in range(num_of_edges):
-        points.append(Vector2(
-            rng.randi_range(-half_size, half_size),
-            rng.randi_range(-half_size, half_size)
-        ))
+        var x : int
+        var y : int
+        
+        if point_area == 0:
+            x = rng.randi_range(-half_size, 0)
+            y = rng.randi_range(-half_size, 0)
+        elif point_area == 1:
+            x = rng.randi_range(0, half_size)
+            y = rng.randi_range(-half_size, 0)
+        elif point_area == 2:
+            x = rng.randi_range(0, half_size)
+            y = rng.randi_range(0, half_size)
+        else:
+            x = rng.randi_range(-half_size, 0)
+            y = rng.randi_range(0, half_size)
+        
+        point_area = (point_area + 1) % 4
+        points.append(Vector2(x, y))
     
     points.sort_custom(self, "_sort_clockwise")
     return PoolVector2Array(points)
