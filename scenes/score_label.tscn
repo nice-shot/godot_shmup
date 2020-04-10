@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://fonts/leaderboard_scores_font.tres" type="DynamicFont" id=1]
+
+[node name="ScoreLabel" type="Label"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "1 - Bob - 2033"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

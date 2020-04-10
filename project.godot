@@ -18,10 +18,22 @@ _global_script_classes=[ {
 "class": "GameManager",
 "language": "GDScript",
 "path": "res://scripts/game_manager.gd"
+}, {
+"base": "Control",
+"class": "Leaderboard",
+"language": "GDScript",
+"path": "res://scripts/leaderboard.gd"
+}, {
+"base": "Reference",
+"class": "SaveUtils",
+"language": "GDScript",
+"path": "res://scripts/save_utils.gd"
 } ]
 _global_script_class_icons={
 "Asteroid": "",
-"GameManager": ""
+"GameManager": "",
+"Leaderboard": "",
+"SaveUtils": ""
 }
 
 [application]
