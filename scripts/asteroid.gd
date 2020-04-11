@@ -3,6 +3,7 @@ extends Node2D
 
 export var size = 50
 export var speed = 150
+
 var SCREEN_HEIGHT = ProjectSettings.get_setting("display/window/size/height")
 var edge_disappear_point = SCREEN_HEIGHT + size
 onready var manager = get_tree().root.get_node("Main/Game") as GameManager
@@ -47,7 +48,7 @@ func _create_shape() -> PoolVector2Array:
 func _ready():
     var shape = _create_shape()
     $Graphic.polygon = shape
-    $Collider/CollisionPolygon.polygon = shape
+    $Collider/Shape.polygon = shape
 
 func _physics_process(delta):
     position.y += speed * delta
@@ -60,11 +61,8 @@ func explode():
     $ExplodeSFX.play()
     $Graphic.queue_free()
     $Collider.queue_free()
-    $Particles2D.emitting = true
+    $ExplosionParticles.emitting = true
     speed = 0
-    var error = $Timer.connect("timeout", self, "queue_free")
-    if (error):
-        print("Couldn't connect free to timeout...")
-    $Timer.wait_time = $Particles2D.lifetime;
-    $Timer.start()
+    $FreeTimer.wait_time = $ExplosionParticles.lifetime;
+    $FreeTimer.start()
     if manager: manager.update_score(10)
