@@ -68,12 +68,11 @@ __meta__ = {
 [node name="DeathMessageLabel" type="Label" parent="DeathMessage"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -28.5678
-margin_bottom = -91.5679
+margin_bottom = -92.0
 custom_fonts/font = SubResource( 1 )
-text = "You Died!
+text = "- YOU DIED! -
 
-Final Score: ###"
+FINAL SCORE: ###"
 align = 1
 valign = 1
 __meta__ = {
@@ -86,15 +85,17 @@ anchor_top = 0.61
 anchor_right = 0.85
 anchor_bottom = 0.7
 margin_left = 1.36035
-margin_top = -56.8058
+margin_top = -41.8417
 margin_right = 1.36035
-margin_bottom = -56.8058
+margin_bottom = -41.8417
 custom_styles/focus = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 align = 1
-placeholder_text = "Name"
+max_length = 4
+selecting_enabled = false
+placeholder_text = "NAME"
 placeholder_alpha = 1.0
 caret_blink = true
 __meta__ = {
@@ -105,8 +106,8 @@ __meta__ = {
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -216.318
-margin_bottom = -171.318
+margin_top = -193.192
+margin_bottom = -148.192
 custom_fonts/font = SubResource( 5 )
 text = "Press RETURN to continue"
 align = 1

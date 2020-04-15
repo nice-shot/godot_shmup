@@ -14,7 +14,7 @@ var shape = PoolVector2Array([
     Vector2(size / 2, size / 2),
 ])
 
-signal hit
+signal destroyed
 
 func _ready():
     $Graphic.polygon = shape
@@ -48,5 +48,5 @@ func _on_Collider_area_entered(area: Area2D):
     var asteroid = area.get_parent() as Asteroid
     if (asteroid):
         asteroid.explode()
-        emit_signal("hit")
+        emit_signal("destroyed")
     

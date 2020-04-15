@@ -15,15 +15,17 @@ func update_score(points : int):
 
 func _ready():
     update_score(0)
-    var error = $Ship.connect("hit", self, "_on_hit")
+    var error = $Ship.connect("destroyed", self, "_on_ship_destroyed")
     if (error):
-        print("Couldn't connect ship 'hit' event")
+        print("Couldn't connect ship 'destroyed' event")
 
-func _on_hit():
-    # Hide Ship
+func _on_ship_destroyed():
+    # Hide Ship and prevent collisions
     $Ship.visible = false
+    $Ship/Collider/CollisionPolygon.set_deferred("disabled", true)
     # Don't spawn additional asteroids
     $AsteroidSpawner.stop()
+    # Show death menu
     $DeathMessage.visible = true
     $DeathMessage/DeathMessageLabel.text = $DeathMessage/DeathMessageLabel.text.replace("###", score)
     $DeathMessage/EnterName.grab_focus()
