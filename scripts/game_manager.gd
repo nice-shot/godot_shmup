@@ -8,6 +8,8 @@ var highscore = ["???", 0]
 const SAVE_DATA_PATH = "user://local.data"
 
 func update_score(points : int):
+    # Don't change score if we're dead
+    if $DeathMessage.visible: return
     score += points
     score_text.text = "Score: %d" % score
 
@@ -18,7 +20,10 @@ func _ready():
         print("Couldn't connect ship 'hit' event")
 
 func _on_hit():
-    get_tree().paused = true
+    # Hide Ship
+    $Ship.visible = false
+    # Don't spawn additional asteroids
+    $AsteroidSpawner.stop()
     $DeathMessage.visible = true
     $DeathMessage/DeathMessageLabel.text = $DeathMessage/DeathMessageLabel.text.replace("###", score)
     $DeathMessage/EnterName.grab_focus()
