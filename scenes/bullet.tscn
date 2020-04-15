@@ -23,4 +23,4 @@ position = Vector2( 0, -10.0028 )
 scale = Vector2( 0.376746, 1 )
 rect = Rect2( -11, -10, 22, 20 )
 [connection signal="area_entered" from="." to="." method="_on_Bullet_area_entered"]
-[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_screen_exited"]

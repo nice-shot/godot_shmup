@@ -16,6 +16,8 @@ func spawn_asteroid():
     get_parent().add_child(node)
     var x = rnd.randi_range(SCREEN_MARGIN, SCREEN_WIDTH - SCREEN_MARGIN)
     node.position = Vector2(x, Y)
+    node.connect("destroyed", get_parent(), "_on_asteroid_destroyed")
+    node.connect("exited_screen", get_parent(), "_on_asteroid_exit_screen")
 
 func _on_AsteroidSpawner_timeout():
     spawn_asteroid()

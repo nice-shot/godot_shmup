@@ -6,9 +6,11 @@ export var speed = 150
 
 var SCREEN_HEIGHT = ProjectSettings.get_setting("display/window/size/height")
 var edge_disappear_point = SCREEN_HEIGHT + size
-onready var manager = get_tree().root.get_node("Main/Game") as GameManager
 
 var rng = RandomNumberGenerator.new()
+
+signal destroyed
+signal exited_screen
 
 func _sort_clockwise(a, b) -> bool:
     return a.angle() < b.angle()
@@ -54,7 +56,7 @@ func _physics_process(delta):
     position.y += speed * delta
     if position.y >= edge_disappear_point:
         # Asteroid passed screen edge
-        if manager: manager.update_score(-50)
+        emit_signal("exited_screen")
         queue_free()
 
 func explode():
@@ -65,4 +67,4 @@ func explode():
     speed = 0
     $FreeTimer.wait_time = $ExplosionParticles.lifetime;
     $FreeTimer.start()
-    if manager: manager.update_score(10)
+    emit_signal("destroyed")

@@ -7,7 +7,7 @@ var highscore = ["???", 0]
 
 const SAVE_DATA_PATH = "user://local.data"
 
-func update_score(points):
+func update_score(points : int):
     score += points
     score_text.text = "Score: %d" % score
 
@@ -25,6 +25,15 @@ func _on_hit():
     var error = $DeathMessage.connect("finished", self, "_on_continue")
     if (error):
         print("Couldn't connect 'finished' game manager 'finished' event")
+
+func _on_bullet_exit_screen():
+    update_score(-5)
+
+func _on_asteroid_destroyed():
+    update_score(10)
+
+func _on_asteroid_exit_screen():
+    update_score(-50)
 
 func _on_continue():
     SaveUtils.add_score($DeathMessage/EnterName.text, score)

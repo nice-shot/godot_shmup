@@ -38,6 +38,11 @@ func _shoot():
     new_bullet.position = Vector2(position.x, position.y - 25)
     $ShootSFX.play()
     get_parent().add_child(new_bullet)
+    new_bullet.connect(
+        "exited_screen",
+        get_parent(),
+        "_on_bullet_exit_screen"
+    )
 
 func _on_Collider_area_entered(area: Area2D):
     var asteroid = area.get_parent() as Asteroid
