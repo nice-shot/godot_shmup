@@ -47,21 +47,7 @@ func _on_asteroid_exit_screen():
 func _on_continue():
     # Send score data 
     emit_signal("ended", $DeathMessage/EnterName.text, score)
-    
-    # Hide death menu
-    $DeathMessage.visible = false
-    $DeathMessage.disconnect("finished", self, "_on_continue")
-    # Reset game score
-    score = 0
-    update_score(0)
-    # Restore ship
-    $Ship/Collider/CollisionPolygon.disabled = false
-    $Ship.visible = true
-    # Delete all asteroids
-    
-    
-    # Restore asteroid spawner
-    $AsteroidSpawner.start()
+    get_tree().reload_current_scene()
 
 #func _load_score():
 #    var save_file = File.new()
