@@ -21,6 +21,7 @@ func _ready():
     if (error):
         print("Couldn't connect ship 'destroyed' event")
 
+
 func _on_ship_destroyed():
     # Hide Ship and prevent collisions
     $Ship.visible = false
@@ -31,9 +32,7 @@ func _on_ship_destroyed():
     $DeathMessage.visible = true
     $DeathMessage/DeathMessageLabel.text = $DeathMessage/DeathMessageLabel.text.replace("###", score)
     $DeathMessage/EnterName.grab_focus()
-    var error = $DeathMessage.connect("finished", self, "_on_continue")
-    if (error):
-        print("Couldn't connect 'finished' game manager 'finished' event")
+
 
 func _on_bullet_exit_screen():
     update_score(-5)
@@ -44,10 +43,16 @@ func _on_asteroid_destroyed():
 func _on_asteroid_exit_screen():
     update_score(-50)
 
-func _on_continue():
-    # Send score data 
+func _upload_score():
     emit_signal("ended", $DeathMessage/EnterName.text, score)
+
+func _on_retry():
+    _upload_score()
     get_tree().reload_current_scene()
+
+func _on_back():
+    get_tree().change_scene("res://scenes/menu.tscn")
+
 
 #func _load_score():
 #    var save_file = File.new()
