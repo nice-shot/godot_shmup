@@ -7,6 +7,8 @@ var highscore = ["???", 0]
 
 const SAVE_DATA_PATH = "user://local.data"
 
+signal ended
+
 func update_score(points : int):
     # Don't change score if we're dead
     if $DeathMessage.visible: return
@@ -43,28 +45,38 @@ func _on_asteroid_exit_screen():
     update_score(-50)
 
 func _on_continue():
-    SaveUtils.add_score($DeathMessage/EnterName.text, score)
+    # Send score data 
+    emit_signal("ended", $DeathMessage/EnterName.text, score)
     
-    get_tree().paused = false
-    score = 0
-    update_score(0)
+    # Hide death menu
     $DeathMessage.visible = false
     $DeathMessage.disconnect("finished", self, "_on_continue")
+    # Reset game score
+    score = 0
+    update_score(0)
+    # Restore ship
+    $Ship/Collider/CollisionPolygon.disabled = false
+    $Ship.visible = true
+    # Delete all asteroids
+    
+    
+    # Restore asteroid spawner
+    $AsteroidSpawner.start()
 
-func _load_score():
-    var save_file = File.new()
-    if not save_file.file_exists(SAVE_DATA_PATH):
-        print("No data file found")
-        return
-    save_file.open(SAVE_DATA_PATH, File.READ)
-    print("Loading file: %s" % save_file.get_path_absolute())
-    highscore = parse_json(save_file.get_line())
-    print("Got high score: " + str(highscore))
-    save_file.close()
-
-func _save_score():
-    var save_file = File.new()
-    save_file.open(SAVE_DATA_PATH, File.WRITE)
-    save_file.store_line(to_json(highscore))
-    save_file.close()
-    print("Saving leaderboard: " + str(highscore))
+#func _load_score():
+#    var save_file = File.new()
+#    if not save_file.file_exists(SAVE_DATA_PATH):
+#        print("No data file found")
+#        return
+#    save_file.open(SAVE_DATA_PATH, File.READ)
+#    print("Loading file: %s" % save_file.get_path_absolute())
+#    highscore = parse_json(save_file.get_line())
+#    print("Got high score: " + str(highscore))
+#    save_file.close()
+#
+#func _save_score():
+#    var save_file = File.new()
+#    save_file.open(SAVE_DATA_PATH, File.WRITE)
+#    save_file.store_line(to_json(highscore))
+#    save_file.close()
+#    print("Saving leaderboard: " + str(highscore))
