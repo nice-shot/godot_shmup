@@ -51,6 +51,7 @@ default_bus_layout=""
 window/size/width=360
 window/size/height=640
 window/handheld/orientation="portrait"
+window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
 [rendering]

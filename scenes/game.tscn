@@ -41,10 +41,8 @@ font_data = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
-margin_left = -2.05054
-margin_top = -2.05054
-margin_right = 357.949
-margin_bottom = 637.949
+anchor_right = 1.0
+anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
