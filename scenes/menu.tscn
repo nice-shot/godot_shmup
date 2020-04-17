@@ -117,6 +117,9 @@ margin_top = -11.12
 margin_right = -141.0
 margin_bottom = 10.88
 custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "PLAY"
 
 [node name="LeaderboardBTN" parent="Main" instance=ExtResource( 3 )]
@@ -127,6 +130,9 @@ margin_top = -11.04
 margin_right = -91.0
 margin_bottom = 10.96
 custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "LEADERBOARD"
 
 [node name="OptionsBTN" parent="Main" instance=ExtResource( 3 )]
@@ -137,6 +143,9 @@ margin_top = -10.96
 margin_right = -124.0
 margin_bottom = 11.04
 custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "OPTIONS"
 
 [node name="Leaderboard" type="Control" parent="."]
@@ -301,6 +310,9 @@ margin_top = 67.714
 margin_right = -141.0
 margin_bottom = 91.714
 custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "BACK"
 
 [node name="Options" type="Control" parent="."]
@@ -335,6 +347,9 @@ margin_top = 67.714
 margin_right = -141.0
 margin_bottom = 91.714
 custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "BACK"
 
 [node name="VolumeCTRL" type="Control" parent="Options"]
