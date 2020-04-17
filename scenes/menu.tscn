@@ -61,13 +61,12 @@ __meta__ = {
 }
 
 [node name="PlayBTN" parent="." instance=ExtResource( 3 )]
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+anchor_top = 0.758
+anchor_bottom = 0.758
 margin_left = 140.0
-margin_top = 474.0
-margin_right = 219.0
-margin_bottom = 496.0
+margin_top = -11.12
+margin_right = -141.0
+margin_bottom = 10.88
 custom_fonts/font = SubResource( 5 )
 text = "PLAY"
 
@@ -78,13 +77,12 @@ margin_right = -6.0
 margin_bottom = -5.0
 
 [node name="LeaderboardBTN" parent="." instance=ExtResource( 3 )]
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+anchor_top = 0.811
+anchor_bottom = 0.811
 margin_left = 92.0
-margin_top = 508.0
-margin_right = 269.0
-margin_bottom = 530.0
+margin_top = -11.04
+margin_right = -91.0
+margin_bottom = 10.96
 custom_fonts/font = SubResource( 5 )
 text = "LEADERBOARD"
 
@@ -93,13 +91,12 @@ margin_top = -4.54034
 margin_bottom = -4.54034
 
 [node name="OptionsBTN" parent="." instance=ExtResource( 3 )]
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+anchor_top = 0.864
+anchor_bottom = 0.864
 margin_left = 124.0
-margin_top = 542.0
-margin_right = 236.0
-margin_bottom = 564.0
+margin_top = -10.96
+margin_right = -124.0
+margin_bottom = 11.04
 custom_fonts/font = SubResource( 5 )
 text = "OPTIONS"
 
