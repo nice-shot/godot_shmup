@@ -5,6 +5,18 @@ onready var _previous_menu_btn : Control = $Main/PlayBTN
 
 func _ready() -> void:
     set_screen_main()
+    # Set SelectSFX for button switching
+    for button in _get_nodes_of_type(Button, self):
+        button.connect("focus_entered", $SFX, "play")
+
+
+func _get_nodes_of_type(type, root : Node) -> Array:
+    var nodes := []
+    for n in root.get_children():
+        nodes.append(n)
+        for sub_n in _get_nodes_of_type(type, n):
+            nodes.append(sub_n)
+    return nodes
 
 
 func play() -> void:

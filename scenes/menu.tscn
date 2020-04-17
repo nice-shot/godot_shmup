@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://fonts/Minecraft.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/menu.gd" type="Script" id=2]
 [ext_resource path="res://scenes/arrowed_button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scripts/leaderboard.gd" type="Script" id=4]
+[ext_resource path="res://sfx/ChangeSelection.wav" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 14
@@ -36,8 +37,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -8.0
+
 [node name="Main" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -103,6 +107,7 @@ custom_fonts/font = SubResource( 5 )
 text = "OPTIONS"
 
 [node name="Leaderboard" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 4 )
