@@ -24,8 +24,7 @@ func _ready():
 
 func _on_ship_destroyed():
     # Hide Ship and prevent collisions
-    $Ship.visible = false
-    $Ship/Collider/CollisionPolygon.set_deferred("disabled", true)
+    $Ship.queue_free()
     # Don't spawn additional asteroids
     $AsteroidSpawner.stop()
     # Show death menu
