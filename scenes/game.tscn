@@ -23,11 +23,11 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
-[sub_resource type="StyleBoxEmpty" id=6]
+[sub_resource type="StyleBoxEmpty" id=13]
 
-[sub_resource type="StyleBoxEmpty" id=7]
+[sub_resource type="StyleBoxEmpty" id=14]
 
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxEmpty" id=15]
 
 [sub_resource type="StyleBoxEmpty" id=9]
 
@@ -142,9 +142,9 @@ margin_top = -181.0
 margin_right = -29.0
 margin_bottom = -133.0
 custom_styles/hover = SubResource( 5 )
-custom_styles/pressed = SubResource( 6 )
-custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
+custom_styles/pressed = SubResource( 13 )
+custom_styles/focus = SubResource( 14 )
+custom_styles/normal = SubResource( 15 )
 custom_fonts/font = ExtResource( 7 )
 text = "RETRY"
 __meta__ = {
