@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://fonts/Minecraft.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/menu.gd" type="Script" id=2]
@@ -16,13 +16,12 @@ font_data = ExtResource( 1 )
 size = 21
 font_data = ExtResource( 1 )
 
-[node name="Menu" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[sub_resource type="DynamicFont" id=6]
+size = 23
+font_data = ExtResource( 1 )
+
+[node name="Menu" type="Node"]
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Background" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -32,7 +31,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Vanity" type="Label" parent="."]
+[node name="Main" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Vanity" type="Label" parent="Main"]
 anchor_right = 1.0
 margin_top = 37.6156
 margin_bottom = 52.6156
@@ -44,7 +50,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Title" type="Label" parent="."]
+[node name="Title" type="Label" parent="Main"]
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -60,7 +66,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayBTN" parent="." instance=ExtResource( 3 )]
+[node name="PlayBTN" parent="Main" instance=ExtResource( 3 )]
 anchor_top = 0.758
 anchor_bottom = 0.758
 margin_left = 140.0
@@ -70,13 +76,7 @@ margin_bottom = 10.88
 custom_fonts/font = SubResource( 5 )
 text = "PLAY"
 
-[node name="SelectionArrows" parent="PlayBTN" index="0"]
-margin_left = 5.0
-margin_top = -5.0
-margin_right = -6.0
-margin_bottom = -5.0
-
-[node name="LeaderboardBTN" parent="." instance=ExtResource( 3 )]
+[node name="LeaderboardBTN" parent="Main" instance=ExtResource( 3 )]
 anchor_top = 0.811
 anchor_bottom = 0.811
 margin_left = 92.0
@@ -86,11 +86,7 @@ margin_bottom = 10.96
 custom_fonts/font = SubResource( 5 )
 text = "LEADERBOARD"
 
-[node name="SelectionArrows" parent="LeaderboardBTN" index="0"]
-margin_top = -4.54034
-margin_bottom = -4.54034
-
-[node name="OptionsBTN" parent="." instance=ExtResource( 3 )]
+[node name="OptionsBTN" parent="Main" instance=ExtResource( 3 )]
 anchor_top = 0.864
 anchor_bottom = 0.864
 margin_left = 124.0
@@ -100,16 +96,38 @@ margin_bottom = 11.04
 custom_fonts/font = SubResource( 5 )
 text = "OPTIONS"
 
-[node name="SelectionArrows" parent="OptionsBTN" index="0"]
-margin_top = -4.54034
-margin_bottom = -4.54034
-[connection signal="ready" from="." to="PlayBTN" method="grab_focus"]
-[connection signal="pressed" from="PlayBTN" to="." method="_on_play"]
-[connection signal="pressed" from="LeaderboardBTN" to="." method="_on_leaderboard"]
-[connection signal="pressed" from="OptionsBTN" to="." method="_on_options"]
+[node name="Leaderboard" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[editable path="PlayBTN"]
+[node name="Title" type="Label" parent="Leaderboard"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -280.725
+margin_bottom = -178.725
+custom_fonts/font = SubResource( 2 )
+text = "LEADERBOARD"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[editable path="LeaderboardBTN"]
-
-[editable path="OptionsBTN"]
+[node name="BackBTN" parent="Leaderboard" instance=ExtResource( 3 )]
+anchor_top = 0.758
+anchor_bottom = 0.758
+margin_left = 140.0
+margin_top = 67.714
+margin_right = -141.0
+margin_bottom = 89.714
+custom_fonts/font = SubResource( 6 )
+text = "BACK"
+[connection signal="pressed" from="Main/PlayBTN" to="." method="play"]
+[connection signal="pressed" from="Main/LeaderboardBTN" to="." method="set_screen_leaderboard"]
+[connection signal="pressed" from="Main/OptionsBTN" to="." method="set_screen_options"]
+[connection signal="pressed" from="Leaderboard/BackBTN" to="." method="set_screen_main"]
