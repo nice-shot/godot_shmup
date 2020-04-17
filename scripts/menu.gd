@@ -28,17 +28,20 @@ func set_screen_main() -> void:
     $Main.show()
     _previous_menu_btn.grab_focus()
     $Leaderboard.hide()
+    $Options.hide()
 
 
 func set_screen_leaderboard() -> void:
     $Leaderboard.show()
     $Leaderboard/BackBTN.grab_focus()
     $Main.hide()
+    $Options.hide()
     _previous_menu_btn = $Main/LeaderboardBTN
 
 
 func set_screen_options() -> void:
-    return
+    $Options.show()
     $Main.hide()
     $Leaderboard.hide()
+    $Options/BackBTN.grab_focus()
     _previous_menu_btn = $Main/OptionsBTN
