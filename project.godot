@@ -27,7 +27,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Asteroid Blaster"
-config/description="Simple shoot'em-up style game ment to test out the Godot game engine."
+config/description="Simple shoot'em-up style game meant to test out the Godot game engine."
 run/main_scene="res://scenes/menu.tscn"
 boot_splash/image="res://sprites/splash.png"
 config/icon="res://sprites/icon.png"
