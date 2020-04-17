@@ -1,12 +1,7 @@
 class_name SaveUtils
 
-
-var _default_data := {
-    leaderboard = [
-        { score = 0, name = "???" }
-       ]
-   }
 const SAVE_DATA_PATH := "user://local.data"
+
 
 static func _create_default_data() -> Dictionary:
     var leaderboard = []
@@ -16,15 +11,39 @@ static func _create_default_data() -> Dictionary:
     return { leaderboard = leaderboard }
 
 
-static func load_save_data() -> Dictionary:
+static func _validate() -> bool:
     var save_file = File.new()
-    if not save_file.file_exists(SAVE_DATA_PATH):
-        print("Creating default data")
+    if not save_file.file_exists(SAVE_DATA_PATH): return false
+    
+    save_file.open(SAVE_DATA_PATH, File.READ)
+    var parse_results := JSON.parse(save_file.get_as_text())
+    if parse_results.error != OK: return false
+    
+    var data = parse_results.result
+    if not data is Dictionary: return false
+    
+    if not "leaderboard" in data: return false
+    
+    var leaderboard = data.leaderboard
+    if not leaderboard is Array: return false
+    
+    for entry in leaderboard:
+        if not entry is Dictionary: return false
+        if not "name" in entry: return false
+        if not "score" in entry: return false
+    
+    return true
+
+
+static func load_save_data() -> Dictionary:
+    if not _validate():
         save_data(_create_default_data())
-    # TODO: Validate data?
+        
+    var save_file = File.new()            
     save_file.open(SAVE_DATA_PATH, File.READ)
     print("Loading save data: %s" % save_file.get_path_absolute())
-    var data = parse_json(save_file.get_as_text())
+    var data : Dictionary = parse_json(save_file.get_as_text())
+    
     save_file.close()
     return data
 
