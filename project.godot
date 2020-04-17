@@ -14,16 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/asteroid.gd"
 }, {
-"base": "Node",
-"class": "GameManager",
-"language": "GDScript",
-"path": "res://scripts/game_manager.gd"
-}, {
-"base": "Control",
-"class": "Leaderboard",
-"language": "GDScript",
-"path": "res://scripts/leaderboard.gd"
-}, {
 "base": "Reference",
 "class": "SaveUtils",
 "language": "GDScript",
@@ -31,8 +21,6 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Asteroid": "",
-"GameManager": "",
-"Leaderboard": "",
 "SaveUtils": ""
 }
 

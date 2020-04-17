@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://fonts/Minecraft.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/menu.gd" type="Script" id=2]
 [ext_resource path="res://scenes/arrowed_button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/leaderboard.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 14
@@ -14,6 +15,10 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 21
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 25
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=6]
@@ -32,6 +37,7 @@ __meta__ = {
 }
 
 [node name="Main" type="Control" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -97,9 +103,9 @@ custom_fonts/font = SubResource( 5 )
 text = "OPTIONS"
 
 [node name="Leaderboard" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -118,13 +124,144 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Leaderboard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 142.0
+margin_bottom = -122.0
+custom_constants/separation = 6
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score01" type="Label" parent="Leaderboard/VBoxContainer"]
+margin_top = 31.0
+margin_right = 360.0
+margin_bottom = 57.0
+custom_fonts/font = SubResource( 7 )
+text = "1 - ??? - 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score02" type="Label" parent="Leaderboard/VBoxContainer"]
+margin_top = 63.0
+margin_right = 360.0
+margin_bottom = 89.0
+custom_fonts/font = SubResource( 7 )
+text = "2 - ??? - 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score03" type="Label" parent="Leaderboard/VBoxContainer"]
+margin_top = 95.0
+margin_right = 360.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 7 )
+text = "3 - ??? - 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score04" type="Label" parent="Leaderboard/VBoxContainer"]
+margin_top = 127.0
+margin_right = 360.0
+margin_bottom = 153.0
+custom_fonts/font = SubResource( 7 )
+text = "4 - ??? - 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score05" type="Label" parent="Leaderboard/VBoxContainer"]
+margin_top = 159.0
+margin_right = 360.0
+margin_bottom = 185.0
+custom_fonts/font = SubResource( 7 )
+text = "5 - ??? - 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score06" type="Label" parent="Leaderboard/VBoxContainer"]
+margin_top = 191.0
+margin_right = 360.0
+margin_bottom = 217.0
+custom_fonts/font = SubResource( 7 )
+text = "6 - ??? - 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score07" type="Label" parent="Leaderboard/VBoxContainer"]
+margin_top = 223.0
+margin_right = 360.0
+margin_bottom = 249.0
+custom_fonts/font = SubResource( 7 )
+text = "7 - ??? - 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score08" type="Label" parent="Leaderboard/VBoxContainer"]
+margin_top = 255.0
+margin_right = 360.0
+margin_bottom = 281.0
+custom_fonts/font = SubResource( 7 )
+text = "8 - ??? - 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score09" type="Label" parent="Leaderboard/VBoxContainer"]
+margin_top = 287.0
+margin_right = 360.0
+margin_bottom = 313.0
+custom_fonts/font = SubResource( 7 )
+text = "9 - ??? - 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score10" type="Label" parent="Leaderboard/VBoxContainer"]
+margin_top = 319.0
+margin_right = 360.0
+margin_bottom = 345.0
+custom_fonts/font = SubResource( 7 )
+text = "10 - ??? - 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="BackBTN" parent="Leaderboard" instance=ExtResource( 3 )]
 anchor_top = 0.758
 anchor_bottom = 0.758
 margin_left = 140.0
 margin_top = 67.714
 margin_right = -141.0
-margin_bottom = 89.714
+margin_bottom = 91.714
 custom_fonts/font = SubResource( 6 )
 text = "BACK"
 [connection signal="pressed" from="Main/PlayBTN" to="." method="play"]

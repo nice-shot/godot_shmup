@@ -1,4 +1,3 @@
-class_name GameManager
 extends Node
 
 var score = 0
@@ -9,11 +8,13 @@ const SAVE_DATA_PATH = "user://local.data"
 
 signal ended
 
+
 func update_score(points : int):
     # Don't change score if we're dead
     if $DeathMessage.visible: return
     score += points
     score_text.text = "Score: %d" % score
+
 
 func _ready():
     update_score(0)
@@ -36,18 +37,23 @@ func _on_ship_destroyed():
 func _on_bullet_exit_screen():
     update_score(-5)
 
+
 func _on_asteroid_destroyed():
     update_score(10)
+
 
 func _on_asteroid_exit_screen():
     update_score(-50)
 
+
 func _upload_score():
-    emit_signal("ended", $DeathMessage/EnterName.text, score)
+    SaveUtils.add_score($DeathMessage/EnterName.text, score)
+
 
 func _on_retry():
     _upload_score()
     get_tree().reload_current_scene()
+
 
 func _on_back():
     _upload_score()
