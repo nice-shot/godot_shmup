@@ -5,7 +5,7 @@ const SAVE_DATA_PATH := "user://local.data"
 
 static func _create_default_data() -> Dictionary:
     var leaderboard = []
-    for i in range(10):
+    for _i in range(10):
         leaderboard.append({ score = 0, name = "???" })
     
     return { leaderboard = leaderboard }

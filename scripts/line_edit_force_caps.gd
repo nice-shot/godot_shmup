@@ -1,10 +1,11 @@
 extends LineEdit
 
 
-func _ready():
+func _ready() -> void:
     connect("text_changed", self, "_validate_text")
-    
-func _validate_text(new_text : String):
+
+
+func _validate_text(new_text : String) -> void:
     if new_text == new_text.to_upper():
         return
     
