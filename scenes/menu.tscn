@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://fonts/Minecraft.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scripts/menu.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scripts/leaderboard.gd" type="Script" id=4]
 [ext_resource path="res://scripts/options.gd" type="Script" id=5]
 [ext_resource path="res://sfx/ChangeSelection.wav" type="AudioStream" id=6]
+[ext_resource path="res://sprites/slider_grabber_filled.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 14
@@ -26,6 +27,36 @@ font_data = ExtResource( 1 )
 [sub_resource type="DynamicFont" id=6]
 size = 23
 font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+content_margin_top = 6.0
+content_margin_bottom = 6.0
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 1.0
+expand_margin_right = 1.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 1, 1, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
 
 [node name="Menu" type="Node"]
 script = ExtResource( 2 )
@@ -284,8 +315,10 @@ __meta__ = {
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-margin_top = -280.725
-margin_bottom = -178.725
+margin_left = 0.463287
+margin_top = -280.262
+margin_right = 0.463287
+margin_bottom = -178.262
 custom_fonts/font = SubResource( 2 )
 text = "OPTIONS"
 align = 1
@@ -309,7 +342,11 @@ anchor_right = 1.0
 margin_left = 209.0
 margin_top = 164.0
 margin_right = -29.0
-margin_bottom = 180.0
+margin_bottom = 174.0
+custom_icons/grabber_highlight = ExtResource( 7 )
+custom_icons/grabber = ExtResource( 7 )
+custom_styles/slider = SubResource( 8 )
+custom_styles/grabber_area = SubResource( 9 )
 max_value = 5.0
 value = 5.0
 __meta__ = {
