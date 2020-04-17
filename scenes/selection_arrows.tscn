@@ -1,0 +1,13 @@
+[gd_scene format=2]
+
+[node name="SelectionArrows" type="Node2D"]
+
+[node name="Left" type="Polygon2D" parent="."]
+position = Vector2( -52, 0 )
+rotation = 1.5708
+polygon = PoolVector2Array( -5, 0, 5, 0, 0, -10 )
+
+[node name="Right" type="Polygon2D" parent="."]
+position = Vector2( 50, 0 )
+rotation = -1.5708
+polygon = PoolVector2Array( -5, 0, 5, 0, 0, -10 )

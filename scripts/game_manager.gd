@@ -51,6 +51,7 @@ func _on_retry():
     get_tree().reload_current_scene()
 
 func _on_back():
+    _upload_score()
     get_tree().change_scene("res://scenes/menu.tscn")
 
 
